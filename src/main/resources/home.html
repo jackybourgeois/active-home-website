@@ -1,0 +1,161 @@
+<!--
+  #%L
+  Active Home :: Home
+  $Id:$
+  $HeadURL:$
+  %%
+  Copyright (C) 2016 org.activehome
+  %%
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as
+  published by the Free Software Foundation, either version 3 of the 
+  License, or (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public 
+  License along with this program.  If not, see
+  <http://www.gnu.org/licenses/gpl-3.0.html>.
+  #L%
+  -->
+<!DOCTYPE html>
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="#00a300">
+    <meta name="msapplication-TileImage" content="/img/icons/mstile-144x144.png">
+    <meta name="msapplication-config" content="/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <script src="/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="/bower_components/polymer/polymer.html">
+    <link rel="import" href="/bower_components/paper-styles/paper-styles.html">
+    <link rel="import" href="/bower_components/core-ajax/core-ajax.html">
+    <link rel="import" href="/auth/auth-view.html">
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Active Home</title>
+    <meta name="description" content="Active Home">
+
+    <style>
+        *  {
+            margin: 0;
+            padding: 0;
+        }
+
+        article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+        [hidden] { display: none; }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        #home {
+            text-align: center;
+            margin: 10px;
+        }
+
+        #house {
+            width: 200px;
+        }
+
+        #experimenter {
+            width: 100px;
+        }
+
+        #experimenter:hover {
+            filter: alpha(opacity=80);
+            opacity: .8;
+        }
+
+        @media (min-width: 768px) {
+            auth-view {
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                width: 300px;
+            }
+
+            #home {
+                margin: 40px;
+                max-width: 50%
+            }
+
+            #house {
+                width: 500px;
+            }
+
+        }
+
+        body, html {
+            font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+            background: rgb(76,76,76);
+            height: 100%;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header style="height: 40px;background-color: black;text-align: center">
+    <a href="${url}" style="color: white;text-decoration: none">
+        <h1>active-home<span style="color: green;font-weight: bold">.org</span></h1>
+    </a>
+</header>
+
+<main>
+
+    <auth-view redirect="widgetboard"></auth-view>
+
+    <div id="home">
+        <img src="img/house.svg" onerror="this.src='img/house.svg';">
+
+        <p style="margin: 20px 2px 20px 2px">
+            Active Home is a platform for in-home interactive energy management. The objective is to provide an adaptive
+            system for home environment to support householders in the management of their energy. This is a distributed
+            system that can be used for real world environment or simulation.
+        </p>
+
+        <h2>Give it a try!</h2>
+        <p>
+            <a href="/experimenter">
+                <img id="experimenter" src="/experimenter/img/experimenter.png" alt="Experimenter" title="Experimenter">
+            </a>
+            <a href="/store">
+                Store
+            </a>
+        </p>
+
+    </div>
+
+</main>
+
+<footer></footer>
+
+</body>
+</html>
