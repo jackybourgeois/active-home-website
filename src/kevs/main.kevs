@@ -2,6 +2,7 @@ add ah : JavaNode
 set ah.log = "INFO"
 
 add ah.timekeeper : org.activehome.timekeeper.TimeKeeper/0.0.1-SNAPSHOT
+set ah.timekeeper.startDate = "actual"
 
 add chan_tic_timekeeper : AsyncBroadcast
 bind ah.timekeeper.tic chan_tic_timekeeper
@@ -148,8 +149,6 @@ bind ah.auth.pushResponse chan_getResponse_ws
 bind ah.auth.pushResponse chan_sendOutside_ws
 bind ah.auth.pushRequest chan_getRequest_linker
 bind ah.auth.getResponse chan_pushResponse_linker
-bind ah.auth.getRequest chan_pushRequest_experimenter
-bind ah.auth.pushResponse chan_getResponse_experimenter
 add chan_pushRequest_auth : AsyncBroadcast
 bind ah.auth.pushRequest chan_pushRequest_auth
 bind ah.context.getRequest chan_pushRequest_auth
