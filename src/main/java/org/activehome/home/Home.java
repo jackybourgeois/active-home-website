@@ -1,4 +1,4 @@
-package org.activehome.service.home;
+package org.activehome.home;
 
 /*
  * #%L
