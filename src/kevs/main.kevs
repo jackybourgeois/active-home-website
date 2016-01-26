@@ -138,7 +138,7 @@ bind ah.store.pushResponse chan_sendOutside_http
 bind ah.store.pushRequest chan_getRequest_ws
 bind ah.store.getResponse chan_pushResponse_ws
 
-add ah.auth : org.activehome.service.auth.Auth/0.0.1-SNAPSHOT
+add ah.auth : org.activehome.auth.Auth/0.0.1-SNAPSHOT
 bind ah.auth.time chan_tic_timekeeper
 bind ah.auth.getRequest chan_pushRequest_http
 bind ah.auth.pushResponse chan_sendOutside_http
