@@ -28,6 +28,7 @@ package org.activehome.home;
 import com.eclipsesource.json.JsonObject;
 import org.activehome.com.Request;
 import org.activehome.com.RequestCallback;
+import org.activehome.com.ShowIfErrorCallback;
 import org.activehome.com.error.Error;
 import org.activehome.service.RequestHandler;
 import org.activehome.service.Service;
@@ -48,7 +49,7 @@ public class Home extends Service implements RequestHandler {
         return this;
     }
 
-    public void html(RequestCallback callback) {
+    public void html(final RequestCallback callback) {
         // ask to WebSocket component (ws) to send/redirect message, it sends back the address and port
         sendRequest(new Request(getFullId(),"ah.ws",getCurrentTime(),"getURI"), new RequestCallback() {
             public void success(Object wsURI) {
@@ -72,7 +73,17 @@ public class Home extends Service implements RequestHandler {
         });
     }
 
-    public Object file(String str) {
+    public void doc(final String page,
+                    final RequestCallback callback) {
+        String content = FileHelper.fileToString(page + ".html", getClass().getClassLoader());
+        content = content.replaceAll("\\$\\{id\\}", getId());
+        JsonObject json = new JsonObject();
+        json.add("content", content);
+        json.add("mime", "text/html");
+        callback.success(json);
+    }
+
+    public Object file(final String str) {
         String content = FileHelper.fileToString(str, getClass().getClassLoader());
         if (str.compareTo("home.html")==0) {
             content = content.replaceAll("\\$\\{id\\}", getId());
@@ -88,7 +99,9 @@ public class Home extends Service implements RequestHandler {
     public void modelUpdated() {
         if (isFirstModelUpdate()) {
             sendRequest(new Request(getFullId(), getNode() + ".http", getCurrentTime(),
-                    "addHandler", new Object[]{"/", getFullId(), false}), null);
+                    "addHandler", new Object[]{"/", getFullId(), false}), new ShowIfErrorCallback());
+            sendRequest(new Request(getFullId(), getNode() + ".http", getCurrentTime(),
+                    "addHandler", new Object[]{"/home", getFullId(), false}), new ShowIfErrorCallback());
         }
         super.modelUpdated();
     }
