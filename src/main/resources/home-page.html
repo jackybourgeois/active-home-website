@@ -1,0 +1,144 @@
+<!--
+  #%L
+  Active Home :: Home
+  $Id:$
+  $HeadURL:$
+  %%
+  Copyright (C) 2016 org.activehome
+  %%
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as
+  published by the Free Software Foundation, either version 3 of the 
+  License, or (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public 
+  License along with this program.  If not, see
+  <http://www.gnu.org/licenses/gpl-3.0.html>.
+  #L%
+  -->
+<link rel="import" href="/bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="/bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="/bower_components/iron-icons/device-icons.html">
+<link rel="import" href="/bower_components/iron-icons/editor-icons.html">
+<link rel="import" href="/bower_components/iron-icons/image-icons.html">
+<link rel="import" href="/bower_components/paper-button/paper-button.html">
+<link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="/bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="/bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="/bower_components/paper-card/paper-card.html">
+
+
+<dom-module id="home-page">
+
+    <link rel="import" href="/${id}/theme.css" type="css">
+
+    <template>
+
+        <style>
+            .intro-section {
+                width: 100%;
+                margin: auto;
+                padding: 2px;
+                max-width: 1000px;
+                text-align:center;
+            }
+
+            .bt-bottom {
+                margin: 10px;
+            }
+
+            @media (max-width: 1000px) {
+                section {
+                    padding: 50px
+                }
+            }
+
+            .content {
+                background: linear-gradient(#598987, #11a39a);
+            }
+        </style>
+
+        <paper-header-panel mode="waterfall-tall">
+            <paper-toolbar>
+                <div flex>Active Home</div>
+            </paper-toolbar>
+
+            <div class="content">
+                <section>
+                    <div class="intro-section">
+                        <paper-card style="max-width: 800px; margin-inside: auto; padding: 50px">
+                            <img src="https://raw.github.com/jackybourgeois/activehome/master/docs/branding/favicon-194x194.png"
+                                 style="margin: 30px;float: left">
+                            <h2>What's Active Home?</h2>
+                            <p style="text-align: left;">
+                                Active Home is a platform for in-home interactive energy management. The objective is to provide an
+                                adaptive system for home environment to support householders in the management of their energy.
+                                This is a distributed system that can be used for real world environment or simulation.
+                            </p>
+                        </paper-card>
+                    </div>
+                </section>
+                <section class="button-section">
+                    <div style="text-align: center;margin: auto; max-width: 1000px;">
+                        <a title="Active Home" href="/downloads/activehome-0.0.1.zip">
+                            <paper-button raised class="primary bt-bottom"> &nbsp;
+                                <iron-icon icon="file-download"></iron-icon>
+                                &nbsp; Active Home &nbsp;0.0.1&nbsp;
+                            </paper-button>
+                        </a>
+                        <a href="/doc/getStarted">
+                            <paper-button class="info bt-bottom" unresolved="" raised> &nbsp;
+                                <iron-icon icon="power-settings-new"></iron-icon>
+                                Get Started
+                            </paper-button>
+                        </a>
+                        <a href="/store">
+                            <paper-button class="info bt-bottom" unresolved="" raised> &nbsp;
+                                <iron-icon icon="apps"></iron-icon>
+                                Component Store
+                            </paper-button>
+                        </a>
+                        <a href="https://github.com/jackybourgeois/activehome">
+                            <paper-button class="secondary bt-bottom" unresolved="" raised>
+                                <iron-icon  src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png"
+                                            aria-label="octocat" title="octocat"></iron-icon> &nbsp;
+                                Look at the code!
+                            </paper-button>
+                        </a>
+                    </div>
+                </section>
+                <section>
+                    <div  style="text-align: center;margin: auto; max-width: 1000px;">
+                        <h2>Features</h2>
+                    </div>
+                </section>
+                <section>
+                    <div style="text-align: center;margin: auto; max-width: 1000px;">
+                        <p>Active Home is mainly designed and developed by Jacky Bourgeois, supported by The Open University,
+                            l'Universit de Rennes 1 and INRIA Rennes DiverSE research group.</p>
+                        <img src="https://raw.github.com/jackybourgeois/activehome/master/docs/institute.png"
+                             style="margin:10px;max-width:400px;">
+                    </div>
+                </section>
+            </div>
+
+        </paper-header-panel>
+
+    </template>
+
+    <script>
+        Polymer({
+            is:'home-page',
+
+            ready: function () {
+
+            }
+        });
+    </script>
+</dom-module>

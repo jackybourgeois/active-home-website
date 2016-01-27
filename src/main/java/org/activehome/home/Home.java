@@ -35,6 +35,7 @@ import org.activehome.service.Service;
 import org.activehome.tools.file.FileHelper;
 import org.activehome.tools.file.TypeMime;
 import org.kevoree.annotation.ComponentType;
+import org.kevoree.annotation.Param;
 
 import java.util.Date;
 
@@ -45,47 +46,50 @@ import java.util.Date;
 @ComponentType
 public class Home extends Service implements RequestHandler {
 
+    @Param(defaultValue = "Active Home Website!")
+    private String description;
+    @Param(defaultValue = "/activehome-home/master/docs/home.png")
+    private String img;
+    @Param(defaultValue = "/activehome-home/master/docs/home.md")
+    private String doc;
+    @Param(defaultValue = "/activehome-home/master/docs/demo.kevs")
+    private String demoScript;
+
     public RequestHandler getRequestHandler(Request request) {
         return this;
     }
 
     public void html(final RequestCallback callback) {
-        // ask to WebSocket component (ws) to send/redirect message, it sends back the address and port
-        sendRequest(new Request(getFullId(),"ah.ws",getCurrentTime(),"getURI"), new RequestCallback() {
-            public void success(Object wsURI) {
-                sendRequest(new Request(getFullId(), getNode() + ".http",
-                        getCurrentTime(),"getURI"), new RequestCallback() {
-                    public void success(Object httpURI) {
-                        String content = FileHelper.fileToString("home.html", getClass().getClassLoader());
-                        content = content.replaceAll("\\$\\{id\\}", getId());
-                        content = content.replaceAll("\\$\\{\\?t=\\}","?t="+new Date().getTime());
-                        content = content.replaceAll("\\$\\{wsURI\\}", wsURI + "");
-                        content = content.replaceAll("\\$\\{url\\}", httpURI + "");
-                        JsonObject json = new JsonObject();
-                        json.add("content", content);
-                        json.add("mime", "text/html");
-                        callback.success(json);
-                    }
-                    public void error(Error result) { callback.error(result); }
-                });
-            }
-            public void error(Error result) { callback.error(result); }
-        });
+        JsonObject wrap = new JsonObject();
+        wrap.add("name", "home-page");
+        wrap.add("url", getId() + "/home-page.html");
+        wrap.add("title", "Active Home");
+        wrap.add("description", "Active Home is a platform for in-home interactive energy management." +
+                " The objective is to provide an adaptive system for home environment to support householders" +
+                " in the management of their energy. This is a distributed system that can be used for real" +
+                " world environment or simulation.");
+
+        JsonObject json = new JsonObject();
+        json.add("wrap", wrap);
+        callback.success(json);
     }
 
     public void doc(final String page,
                     final RequestCallback callback) {
-        String content = FileHelper.fileToString(page + ".html", getClass().getClassLoader());
-        content = content.replaceAll("\\$\\{id\\}", getId());
+        JsonObject wrap = new JsonObject();
+        wrap.add("name", page);
+        wrap.add("url", getId() + "/" + page + ".html");
+        wrap.add("title", page);
+        wrap.add("description", "Active Home - " + page);
+
         JsonObject json = new JsonObject();
-        json.add("content", content);
-        json.add("mime", "text/html");
+        json.add("wrap", wrap);
         callback.success(json);
     }
 
     public Object file(final String str) {
         String content = FileHelper.fileToString(str, getClass().getClassLoader());
-        if (str.compareTo("home.html")==0) {
+        if (str.endsWith(".html")) {
             content = content.replaceAll("\\$\\{id\\}", getId());
         }
         JsonObject json = new JsonObject();
