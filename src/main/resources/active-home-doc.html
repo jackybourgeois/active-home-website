@@ -37,6 +37,7 @@
 <link rel="import" href="/bower_components/paper-item/paper-item.html">
 <link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="/bower_components/mark-down/mark-down.html">
+<link rel="import" href="/${id}/loading-spinner.html">
 
 
 <dom-module id="active-home-doc">
@@ -101,100 +102,121 @@
                     </a>
                 </div>
                 <div>
-                    <paper-item id="/activehome/master/org.activehome.com/docs/com.md" on-click="selectSection">
-                        <paper-item-body two-line>
-                            <div class="title">
-                                <iron-icon icon="language"></iron-icon>
+                    <paper-item id="--activehome--master--org__activehome__com--docs--com__md-item" on-click="selectSection">
+                        <paper-item-body two-line id="--activehome--master--org__activehome__com--docs--com__md-body">
+                            <div class="title" id="--activehome--master--org__activehome__com--docs--com__md-title">
+                                <iron-icon icon="language" id="--activehome--master--org__activehome__com--docs--com__md-icon"></iron-icon>
                                 Com
                             </div>
-                            <div secondary class="subtitle">Messages in Active Home</div>
+                            <div secondary class="subtitle" id="--activehome--master--org__activehome__com--docs--com__md-subtitle">
+                                Messages in Active Home
+                            </div>
                         </paper-item-body>
                     </paper-item>
-                    <paper-item id="/activehome/master/org.activehome.time/docs/timeControlled.md"
+                    <paper-item id="--activehome--master--org__activehome__time--docs--timeControlled__md-item"
                                 on-click="selectSection">
-                        <paper-item-body two-line>
-                            <div class="title">
-                                <iron-icon icon="device:access-time"></iron-icon>
+                        <paper-item-body two-line id="--activehome--master--org__activehome__time--docs--timeControlled__md-body">
+                            <div class="title" id="--activehome--master--org__activehome__time--docs--timeControlled__md-title">
+                                <iron-icon icon="device:access-time" id="--activehome--master--org__activehome__time--docs--timeControlled__md-icon"></iron-icon>
                                 Time
                             </div>
-                            <div secondary class="subtitle">Tic, distribution, simulation</div>
+                            <div secondary class="subtitle" id="--activehome--master--org__activehome__time--docs--timeControlled__md-subtitle">
+                                Tic, distribution, simulation
+                            </div>
                         </paper-item-body>
                     </paper-item>
-                    <paper-item id="/activehome/master/org.activehome.service/docs/service.md"
-                                on-click="selectSection" style="background: #ffe680">
-                        <paper-item-body two-line>
-                            <div class="title">
-                                <iron-icon icon="trending-up"></iron-icon>
+                    <paper-item on-click="selectSection" id="--activehome--master--org__activehome__service--docs--service__md-item"
+                                style="background: #ffe680">
+                        <paper-item-body two-line id="--activehome--master--org__activehome__service--docs--service__md-body">
+                            <div class="title" id="--activehome--master--org__activehome__service--docs--service__md-title">
+                                <iron-icon icon="trending-up" id="--activehome--master--org__activehome__service--docs--service__md-icon"></iron-icon>
                                 Service
                             </div>
-                            <div secondary class="subtitle">Play with data</div>
+                            <div secondary class="subtitle" id="--activehome--master--org__activehome__service--docs--service__md-subtitle">
+                                Play with data
+                            </div>
                         </paper-item-body>
                     </paper-item>
-                    <paper-item id="/activehome/master/org.activehome.api/docs/api.md"
+                    <paper-item id="--activehome--master--org__activehome__api--docs--api__md-item"
                                 on-click="selectSection" style="background: #afdde9">
-                        <paper-item-body two-line>
-                            <div class="title">
-                                <iron-icon icon="swap-horiz"></iron-icon>
+                        <paper-item-body two-line id="--activehome--master--org__activehome__api--docs--api__md-body">
+                            <div class="title" id="--activehome--master--org__activehome__api--docs--api__md-title">
+                                <iron-icon icon="swap-horiz" id="--activehome--master--org__activehome__api--docs--api__md-icon"></iron-icon>
                                 API
                             </div>
-                            <div secondary class="subtitle">Get in and out Active Home</div>
+                            <div secondary class="subtitle" id="--activehome--master--org__activehome__api--docs--api__md-subtitle">
+                                Get in and out Active Home
+                            </div>
                         </paper-item-body>
                     </paper-item>
-                    <paper-item id="/activehome/master/org.activehome.io/docs/io.md"
+                    <paper-item id="--activehome--master--org__activehome__io--docs--io__md-item"
                                 on-click="selectSection" style="background: #d38d5f">
-                        <paper-item-body two-line>
-                            <div class="title">
-                                <iron-icon icon="maps:local-laundry-service"></iron-icon>
+                        <paper-item-body two-line id="--activehome--master--org__activehome__io--docs--io__md-body">
+                            <div class="title" id="--activehome--master--org__activehome__io--docs--io__md-title">
+                                <iron-icon icon="maps:local-laundry-service" id="--activehome--master--org__activehome__io--docs--io__md-body"></iron-icon>
                                 IO
                             </div>
-                            <div secondary class="subtitle">
+                            <div secondary class="subtitle" id="--activehome--master--org__activehome__io--docs--io__md-subtite">
                                 Input/Output
                             </div>
                         </paper-item-body>
                     </paper-item>
-                    <paper-item id="/activehome/master/org.activehome.user/docs/user.md"
+                    <paper-item id="--activehome--master--org__activehome__user--docs--user__md-item"
                                 on-click="selectSection" style="background: #aaffaa">
-                        <paper-item-body two-line>
-                            <div class="title">
-                                <iron-icon icon="face"></iron-icon>
+                        <paper-item-body two-line id="--activehome--master--org__activehome__user--docs--user__md-body">
+                            <div class="title" id="--activehome--master--org__activehome__user--docs--user__md-title">
+                                <iron-icon icon="face" id="--activehome--master--org__activehome__user--docs--user__md-user"></iron-icon>
                                 User
                             </div>
-                            <div secondary class="subtitle">
+                            <div secondary class="subtitle" id="--activehome--master--org__activehome__user--docs--user__md-subtitle">
                                 Householder/System Hub
                             </div>
                         </paper-item-body>
                     </paper-item>
-                    <paper-item id="/activehome/master/org.activehome.context/docs/context.md" on-click="selectSection">
-                        <paper-item-body two-line>
-                            <div class="title">
-                                <iron-icon icon="device:storage"></iron-icon>
+                    <paper-item id="--activehome--master--org__activehome__context--docs--context__md-item"
+                                on-click="selectSection">
+                        <paper-item-body two-line id="--activehome--master--org__activehome__context--docs--context__md-body" >
+                            <div class="title" id="--activehome--master--org__activehome__context--docs--context__md-title" >
+                                <iron-icon icon="device:storage" id="--activehome--master--org__activehome__context--docs--context__md-icon"></iron-icon>
                                 Context
                             </div>
-                            <div secondary class="subtitle">Managing data</div>
+                            <div secondary class="subtitle" id="--activehome--master--org__activehome__context--docs--context__md-subtitle" >
+                                Managing data
+                            </div>
                         </paper-item-body>
                     </paper-item>
                     <div class="group">
                         Energy
                     </div>
                     <hr>
-                    <paper-item id="/activehome-energy/master/docs/reactive.md" on-click="selectSection">
-                        <paper-item-body two-line>
-                            <div class="title">Reactive Process</div>
-                            <div secondary class="subtitle"></div>
+                    <paper-item id="--activehome-energy--master--docs--reactive__md-item" on-click="selectSection">
+                        <paper-item-body two-line id="--activehome-energy--master--docs--reactive__md-body">
+                            <div class="title" id="--activehome-energy--master--docs--reactive__md-title">
+                                Reactive Process
+                            </div>
+                            <div secondary class="subtitle" id="--activehome-energy--master--docs--reactive__md-subtitle"></div>
                         </paper-item-body>
                     </paper-item>
-                    <paper-item id="/activehome-energy/master/docs/predictive.md"
+                    <paper-item id="--activehome-energy--master--docs--predictive__md-item"
                                 on-click="selectSection">
-                        <paper-item-body two-line>
-                            <div class="title">Predictive Process</div>
-                            <div secondary class="subtitle"></div>
+                        <paper-item-body two-line id="--activehome-energy--master--docs--predictive__md-body">
+                            <div class="title" id="--activehome-energy--master--docs--predictive__md-title">
+                                Predictive Process
+                            </div>
+                            <div secondary class="subtitle" id="--activehome-energy--master--docs--predictive__md-subtitle">
+
+                            </div>
                         </paper-item-body>
                     </paper-item>
-                    <paper-item id="/activehome-energy/master/docs/collaboration.md"
+                    <paper-item id="--activehome-energy--master--docs--collaboration__md-item"
                                 on-click="selectSection">
-                        <paper-item-body two-line>
-                            <div class="title">Collaboration</div>
-                            <div secondary class="subtitle"></div>
+                        <paper-item-body two-line id="--activehome-energy--master--docs--collaboration__md-body">
+                            <div class="title" id="--activehome-energy--master--docs--collaboration__md-title">
+                                Collaboration
+                            </div>
+                            <div secondary class="subtitle" id="--activehome-energy--master--docs--collaboration__md-subtitle">
+
+                            </div>
                         </paper-item-body>
                     </paper-item>
 
@@ -229,7 +251,7 @@
             is: 'active-home-doc',
 
             ready: function () {
-                this.requestDocPage("/activehome/master/docs/overview.md");
+                this.requestDocPage("--activehome--master--docs--overview__md");
             },
 
             loadView: function (content) {
@@ -239,15 +261,11 @@
             },
 
             selectSection: function (e) {
-                var id = "";
-                for (var i in e.path) {
-                    if (e.path[i].localName == "paper-item") {
-                        id = e.path[i].id;
-                    }
+                var target = e.srcElement;
+                if (target==undefined) {
+                    target = e.target;
                 }
-                if (id != "") {
-                    this.requestDocPage(id);
-                }
+                this.requestDocPage(target.id.substr(0,target.id.lastIndexOf("-")));
             },
 
             requestDocPage: function(page) {
