@@ -63,6 +63,8 @@ public class Home extends Service implements RequestHandler {
     private String doc;
     @Param(defaultValue = "/activehome-home/master/docs/demo.kevs")
     private String demoScript;
+    @Param(defaultValue = "/activehome-home")
+    private String src;
 
     public RequestHandler getRequestHandler(Request request) {
         return this;
