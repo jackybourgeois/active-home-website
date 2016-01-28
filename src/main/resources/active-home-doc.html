@@ -1,0 +1,266 @@
+<!--
+  #%L
+  Active Home :: Home
+  $Id:$
+  $HeadURL:$
+  %%
+  Copyright (C) 2016 org.activehome
+  %%
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as
+  published by the Free Software Foundation, either version 3 of the 
+  License, or (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public 
+  License along with this program.  If not, see
+  <http://www.gnu.org/licenses/gpl-3.0.html>.
+  #L%
+  -->
+<link rel="import" href="/bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="/bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="/bower_components/iron-icons/device-icons.html">
+<link rel="import" href="/bower_components/iron-icons/editor-icons.html">
+<link rel="import" href="/bower_components/iron-icons/maps-icons.html">
+<link rel="import" href="/bower_components/iron-icons/image-icons.html">
+<link rel="import" href="/bower_components/paper-button/paper-button.html">
+<link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="/bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="/bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="/bower_components/paper-card/paper-card.html">
+<link rel="import" href="/bower_components/paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" href="/bower_components/paper-item/paper-item.html">
+<link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="/bower_components/mark-down/mark-down.html">
+
+
+<dom-module id="active-home-doc">
+
+    <link rel="import" href="/${id}/theme.css" type="css">
+
+    <template>
+
+        <style>
+            .intro-section {
+                width: 100%;
+                margin: auto;
+                padding: 2px;
+                max-width: 1000px;
+                text-align: center;
+            }
+
+            .bt-bottom {
+                margin: 10px;
+            }
+
+            @media (max-width: 1000px) {
+                section {
+                    padding: 50px
+                }
+            }
+
+            .content {
+                background: linear-gradient(#598987, #11a39a);
+            }
+
+            .title {
+                font-weight: bold;
+            }
+
+            .subtitle {
+                font-style: italic;
+            }
+
+            paper-item {
+                cursor: pointer;
+            }
+
+            .group {
+                margin-top: 15px;
+                font-style: italic;
+                font-weight: bold;
+            }
+
+        </style>
+
+        <iron-ajax id="ajax" handle-as="json" on-response="handleResponse"></iron-ajax>
+        <loading-spinner id="spinner"></loading-spinner>
+
+        <paper-drawer-panel>
+            <paper-header-panel drawer>
+                <div>
+                    <a href="/" style="text-decoration: none">
+                        <img src="https://raw.github.com/jackybourgeois/activehome/master/docs/branding/favicon-96x96.png"
+                             style="margin: 2px;float: left">
+                        <h1>Active Home</h1>
+                    </a>
+                </div>
+                <div>
+                    <paper-item id="/activehome/master/org.activehome.com/docs/com.md" on-click="selectSection">
+                        <paper-item-body two-line>
+                            <div class="title">
+                                <iron-icon icon="language"></iron-icon>
+                                Com
+                            </div>
+                            <div secondary class="subtitle">Messages in Active Home</div>
+                        </paper-item-body>
+                    </paper-item>
+                    <paper-item id="/activehome/master/org.activehome.time/docs/timeControlled.md"
+                                on-click="selectSection">
+                        <paper-item-body two-line>
+                            <div class="title">
+                                <iron-icon icon="device:access-time"></iron-icon>
+                                Time
+                            </div>
+                            <div secondary class="subtitle">Tic, distribution, simulation</div>
+                        </paper-item-body>
+                    </paper-item>
+                    <paper-item id="/activehome/master/org.activehome.service/docs/service.md"
+                                on-click="selectSection" style="background: #ffe680">
+                        <paper-item-body two-line>
+                            <div class="title">
+                                <iron-icon icon="trending-up"></iron-icon>
+                                Service
+                            </div>
+                            <div secondary class="subtitle">Play with data</div>
+                        </paper-item-body>
+                    </paper-item>
+                    <paper-item id="/activehome/master/org.activehome.api/docs/api.md"
+                                on-click="selectSection" style="background: #afdde9">
+                        <paper-item-body two-line>
+                            <div class="title">
+                                <iron-icon icon="swap-horiz"></iron-icon>
+                                API
+                            </div>
+                            <div secondary class="subtitle">Get in and out Active Home</div>
+                        </paper-item-body>
+                    </paper-item>
+                    <paper-item id="/activehome/master/org.activehome.io/docs/io.md"
+                                on-click="selectSection" style="background: #d38d5f">
+                        <paper-item-body two-line>
+                            <div class="title">
+                                <iron-icon icon="maps:local-laundry-service"></iron-icon>
+                                IO
+                            </div>
+                            <div secondary class="subtitle">
+                                Input/Output
+                            </div>
+                        </paper-item-body>
+                    </paper-item>
+                    <paper-item id="/activehome/master/org.activehome.user/docs/user.md"
+                                on-click="selectSection" style="background: #aaffaa">
+                        <paper-item-body two-line>
+                            <div class="title">
+                                <iron-icon icon="face"></iron-icon>
+                                User
+                            </div>
+                            <div secondary class="subtitle">
+                                Householder/System Hub
+                            </div>
+                        </paper-item-body>
+                    </paper-item>
+                    <paper-item id="/activehome/master/org.activehome.context/docs/context.md" on-click="selectSection">
+                        <paper-item-body two-line>
+                            <div class="title">
+                                <iron-icon icon="device:storage"></iron-icon>
+                                Context
+                            </div>
+                            <div secondary class="subtitle">Managing data</div>
+                        </paper-item-body>
+                    </paper-item>
+                    <div class="group">
+                        Energy
+                    </div>
+                    <hr>
+                    <paper-item id="/activehome-energy/master/docs/reactive.md" on-click="selectSection">
+                        <paper-item-body two-line>
+                            <div class="title">Reactive Process</div>
+                            <div secondary class="subtitle"></div>
+                        </paper-item-body>
+                    </paper-item>
+                    <paper-item id="/activehome-energy/master/docs/predictive.md"
+                                on-click="selectSection">
+                        <paper-item-body two-line>
+                            <div class="title">Predictive Process</div>
+                            <div secondary class="subtitle"></div>
+                        </paper-item-body>
+                    </paper-item>
+                    <paper-item id="/activehome-energy/master/docs/collaboration.md"
+                                on-click="selectSection">
+                        <paper-item-body two-line>
+                            <div class="title">Collaboration</div>
+                            <div secondary class="subtitle"></div>
+                        </paper-item-body>
+                    </paper-item>
+
+                    <a href="/store">
+                        <paper-button class="info bt-bottom" unresolved="" raised>
+                            <iron-icon icon="apps"></iron-icon>
+                            Component Catalog
+                        </paper-button>
+                    </a>
+                </div>
+            </paper-header-panel>
+            <paper-header-panel main class="content" mode="waterfall-tall">
+                <paper-toolbar>
+                    <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+                    <div class="bottom">
+                        <h2 style="color: #fff">Reference Guide</h2>
+                    </div>
+                </paper-toolbar>
+                <section style="text-align: center">
+                    <paper-card id="mainPanel" style="margin: auto; width: 100%;
+                    min-height: 500px; max-width: 800px; padding: 50px">
+
+                    </paper-card>
+                </section>
+            </paper-header-panel>
+        </paper-drawer-panel>
+
+    </template>
+
+    <script>
+        Polymer({
+            is: 'active-home-doc',
+
+            ready: function () {
+                this.requestDocPage("/activehome/master/docs/overview.md");
+            },
+
+            loadView: function (content) {
+                this.$.mainPanel.innerHTML = "<div class=\"card-content\" style=\"text-align: left\">" +
+                        "<mark-down>" + content + "</mark-down></div>";
+                this.$.spinner.hide();
+            },
+
+            selectSection: function (e) {
+                var id = "";
+                for (var i in e.path) {
+                    if (e.path[i].localName == "paper-item") {
+                        id = e.path[i].id;
+                    }
+                }
+                if (id != "") {
+                    this.requestDocPage(id);
+                }
+            },
+
+            requestDocPage: function(page) {
+                var ajax = this.$.ajax;
+                ajax.method = "GET";
+                ajax.url = "/store/doc/" + encodeURIComponent(page);
+                ajax.generateRequest();
+                this.$.spinner.display();
+            },
+
+            handleResponse: function (e) {
+                this.loadView(e.detail.response);
+            }
+        });
+    </script>
+</dom-module>

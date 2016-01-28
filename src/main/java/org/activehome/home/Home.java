@@ -30,6 +30,7 @@ import org.activehome.com.Request;
 import org.activehome.com.RequestCallback;
 import org.activehome.com.ShowIfErrorCallback;
 import org.activehome.com.error.Error;
+import org.activehome.com.error.ErrorType;
 import org.activehome.service.RequestHandler;
 import org.activehome.service.Service;
 import org.activehome.tools.file.FileHelper;
@@ -37,7 +38,13 @@ import org.activehome.tools.file.TypeMime;
 import org.kevoree.annotation.ComponentType;
 import org.kevoree.annotation.Param;
 
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author Jacky Bourgeois
@@ -45,6 +52,8 @@ import java.util.Date;
  */
 @ComponentType
 public class Home extends Service implements RequestHandler {
+
+    private static String BASE_VCS_URL = "https://raw.githubusercontent.com/jackybourgeois";
 
     @Param(defaultValue = "Active Home Website!")
     private String description;
@@ -74,17 +83,27 @@ public class Home extends Service implements RequestHandler {
         callback.success(json);
     }
 
-    public void doc(final String page,
-                    final RequestCallback callback) {
+    public void doc(final RequestCallback callback) {
         JsonObject wrap = new JsonObject();
-        wrap.add("name", page);
-        wrap.add("url", getId() + "/" + page + ".html");
-        wrap.add("title", page);
-        wrap.add("description", "Active Home - " + page);
+        wrap.add("name", "active-home-doc");
+        wrap.add("url", "/" + getId() + "/active-home-doc.html");
+        wrap.add("title", "Active Home - Doc");
+        wrap.add("description", "Active Home documentation");
 
         JsonObject json = new JsonObject();
         json.add("wrap", wrap);
         callback.success(json);
+    }
+
+    public void doc(final String url,
+                    final RequestCallback callback) {
+        try {
+            callback.success(getContentFrom(
+                    java.net.URLDecoder.decode(url, "UTF-8")));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            callback.error(new Error(ErrorType.METHOD_ERROR, "Unable to parse URL " + url));
+        }
     }
 
     public Object file(final String str) {
@@ -108,5 +127,74 @@ public class Home extends Service implements RequestHandler {
                     "addHandler", new Object[]{"/home", getFullId(), false}), new ShowIfErrorCallback());
         }
         super.modelUpdated();
+    }
+
+    public static HashMap<String, Object> sendGet(final String url,
+                                                  final List<String> cookieList) {
+        try {
+            URL obj = new URL(url);
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+            //add request header
+            con.setRequestProperty("User-Agent", "Mozilla/5.0");
+            con.setRequestProperty("Accept", "application/json");
+            con.setRequestProperty("Content-Type", "application/json");
+            if (cookieList != null) {
+                for (String cookie : cookieList) {
+                    con.addRequestProperty("Cookie", cookie);
+                }
+            }
+
+            HashMap<String, Object> responseMap = new HashMap<>();
+
+            int responseCode = con.getResponseCode();
+            Map<String, List<String>> respHeaderMap = con.getHeaderFields();
+            for (Map.Entry<String, List<String>> entry : respHeaderMap.entrySet()) {
+                if (entry.getKey() != null && entry.getKey().compareTo("Set-Cookie") == 0)
+                    responseMap.put("Set-Cookie", entry.getValue());
+            }
+
+            responseMap.put("content", inputStreamToString(con.getInputStream()));
+
+            return responseMap;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static String inputStreamToString(InputStream is) {
+        BufferedReader in = new BufferedReader(new InputStreamReader(is));
+        String inputLine;
+        StringBuilder response = new StringBuilder();
+
+        try {
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine).append("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return response.toString();
+    }
+
+    public String getContentFrom(String url) {
+        System.out.println("url to check: " + url);
+        if (url.startsWith("/")) {
+            url = BASE_VCS_URL + url;
+        }
+        HashMap<String, Object> response = sendGet(url, null);
+        if (response != null) {
+            System.out.println(response.get("content"));
+            return (String) response.get("content");
+        }
+        return "";
     }
 }

@@ -32,6 +32,7 @@
 <link rel="import" href="/bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="/bower_components/paper-card/paper-card.html">
+<link rel="import" href="/bower_components/paper-badge/paper-badge.html">
 
 
 <dom-module id="home-page">
@@ -46,7 +47,7 @@
                 margin: auto;
                 padding: 2px;
                 max-width: 1000px;
-                text-align:center;
+                text-align: center;
             }
 
             .bt-bottom {
@@ -62,11 +63,21 @@
             .content {
                 background: linear-gradient(#598987, #11a39a);
             }
+
+            .feature {
+                width: 300px;
+                margin: 10px;
+            }
+
+            .feature-icon {
+                --iron-icon-height: 96px;
+                --iron-icon-width: 96px;
+            }
         </style>
 
         <paper-header-panel mode="waterfall-tall">
             <paper-toolbar>
-                <div flex>Active Home</div>
+                <h1 class="bottom" style="color: #ffffff">Active Home</h1>
             </paper-toolbar>
 
             <div class="content">
@@ -77,8 +88,10 @@
                                  style="margin: 30px;float: left">
                             <h2>What's Active Home?</h2>
                             <p style="text-align: left;">
-                                Active Home is a platform for in-home interactive energy management. The objective is to provide an
-                                adaptive system for home environment to support householders in the management of their energy.
+                                Active Home is a platform for in-home interactive energy management. The objective is to
+                                provide an
+                                adaptive system for home environment to support householders in the management of their
+                                energy.
                                 This is a distributed system that can be used for real world environment or simulation.
                             </p>
                         </paper-card>
@@ -87,40 +100,112 @@
                 <section class="button-section">
                     <div style="text-align: center;margin: auto; max-width: 1000px;">
                         <a title="Active Home" href="/downloads/activehome-0.0.1.zip">
-                            <paper-button raised class="primary bt-bottom"> &nbsp;
+                            <paper-button raised class="primary bt-bottom">
                                 <iron-icon icon="file-download"></iron-icon>
-                                &nbsp; Active Home &nbsp;0.0.1&nbsp;
-                            </paper-button>
-                        </a>
-                        <a href="/doc/getStarted">
-                            <paper-button class="info bt-bottom" unresolved="" raised> &nbsp;
-                                <iron-icon icon="power-settings-new"></iron-icon>
-                                Get Started
+                                Get Active Home
                             </paper-button>
                         </a>
                         <a href="/store">
-                            <paper-button class="info bt-bottom" unresolved="" raised> &nbsp;
+                            <paper-button class="info bt-bottom" unresolved="" raised>
                                 <iron-icon icon="apps"></iron-icon>
-                                Component Store
+                                Browse Components
                             </paper-button>
                         </a>
                         <a href="https://github.com/jackybourgeois/activehome">
                             <paper-button class="secondary bt-bottom" unresolved="" raised>
-                                <iron-icon  src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png"
-                                            aria-label="octocat" title="octocat"></iron-icon> &nbsp;
-                                Look at the code!
+                                <iron-icon src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png"
+                                           aria-label="octocat" title="octocat"></iron-icon>
+                                View on GitHub
                             </paper-button>
                         </a>
                     </div>
                 </section>
-                <section>
-                    <div  style="text-align: center;margin: auto; max-width: 1000px;">
-                        <h2>Features</h2>
-                    </div>
+                <section id="features" style="text-align: center">
+                    <paper-card class="feature">
+                        <div class="card-content" style="text-align: center">
+                            <iron-icon class="feature-icon" icon="view-quilt" style="color: #000000;"></iron-icon>
+                            <h2>Component-Based</h2>
+                            <span style="min-height: 300px;text-align: left">
+                                A distributed component-based system allowing a great flexibility!
+                                Pick your components and build the home application that suit you.
+                            </span>
+                        </div>
+                    </paper-card>
+                    <paper-card class="feature">
+                        <div class="card-content" style="text-align: center">
+                            <iron-icon class="feature-icon" icon="swap-horiz" style="color: #CC0000;"></iron-icon>
+                            <h2>Hybrid</h2>
+                            <span style="min-height: 300px;text-align: left">
+                                You can play safely or deploy concrete infrastructure, all-in-one!
+                            </span>
+                        </div>
+                    </paper-card>
+                    <paper-card class="feature">
+                        <div class="card-content" style="text-align: center">
+                            <iron-icon class="feature-icon" icon="face" style="color: #4CAF50;"></iron-icon>
+                            <h2>User-centered</h2>
+                            <span style="min-height: 300px;text-align: left">
+                                This system is designed to be interactive. Of course, you can also automate things and ignore the user...
+                            </span>
+                        </div>
+                    </paper-card>
+                </section>
+                <section style="text-align: center">
+                    <paper-card style="margin: auto; max-width: 1000px;">
+                        <div class="card-content" style="text-align: left">
+                            <h2>Let's get started!</h2>
+                            <ol>
+                                <li>
+                                    <b>Step 0:</b> Requirements: Active Home requires Java 1.8 and Bower.
+                                </li>
+                                <li>
+                                    <b>Step 1:</b> Get Active Home:
+                                    <a title="Active Home" href="/downloads/activehome-0.0.1.zip">
+                                        <paper-button raised class="primary bt-bottom">
+                                            <iron-icon icon="file-download"></iron-icon>
+                                            Get Active Home
+                                        </paper-button>
+                                    </a>
+                                </li>
+                                <li>
+                                    <b>Step 2:</b> Extract the archive content into the folder of your choice.
+                                </li>
+                                <li>
+                                    <b>Step 3:</b> Open the extracted folder and double-click on
+                                    <ul>
+                                        <li>Linux user: 'Active Home.sh'</li>
+                                        <li>Windows user: 'Active Home.bat'</li>
+                                        <li>Mac user: ?</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                            <br>
+                            <p>
+                                We are done, click on
+                                <a href="http://localhost:9999" target="_blank" style="font-weight: bold">
+                                    http://localhost:9999</a>
+                                to look Active Home user interface. You can start browsing the component
+                                catalog and install components.
+                            </p>
+                            <a href="/store">
+                                <paper-button class="info bt-bottom" unresolved="" raised>
+                                    <iron-icon icon="apps"></iron-icon>
+                                    Browse Components
+                                </paper-button>
+                            </a>
+                            <a href="/home/doc">
+                                <paper-button class="secondary bt-bottom" unresolved="" raised>
+                                    <iron-icon icon="build"></iron-icon>
+                                    Guide and Resources
+                                </paper-button>
+                            </a>
+                        </div>
+                    </paper-card>
                 </section>
                 <section>
                     <div style="text-align: center;margin: auto; max-width: 1000px;">
-                        <p>Active Home is mainly designed and developed by Jacky Bourgeois, supported by The Open University,
+                        <p>Active Home is mainly designed and developed by Jacky Bourgeois, supported by The Open
+                            University,
                             l'Universit de Rennes 1 and INRIA Rennes DiverSE research group.</p>
                         <img src="https://raw.github.com/jackybourgeois/activehome/master/docs/institute.png"
                              style="margin:10px;max-width:400px;">
@@ -134,7 +219,7 @@
 
     <script>
         Polymer({
-            is:'home-page',
+            is: 'home-page',
 
             ready: function () {
 
