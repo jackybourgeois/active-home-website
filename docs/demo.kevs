@@ -1,5 +1,0 @@
-add ah : JavaNode
-add sync : WSGroup
-
-
-attach ah sync

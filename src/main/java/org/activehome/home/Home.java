@@ -6,7 +6,7 @@ package org.activehome.home;
  * $Id:$
  * $HeadURL:$
  * %%
- * Copyright (C) 2016 org.activehome
+ * Copyright (C) 2016 Active Home Project
  * %%
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as
@@ -57,13 +57,7 @@ public class Home extends Service implements RequestHandler {
 
     @Param(defaultValue = "Active Home Website!")
     private String description;
-    @Param(defaultValue = "/activehome-home/master/docs/home.png")
-    private String img;
-    @Param(defaultValue = "/activehome-home/master/docs/home.md")
-    private String doc;
-    @Param(defaultValue = "/activehome-home/master/docs/demo.kevs")
-    private String demoScript;
-    @Param(defaultValue = "/activehome-home")
+    @Param(defaultValue = "/active-home-website")
     private String src;
 
     public RequestHandler getRequestHandler(Request request) {
