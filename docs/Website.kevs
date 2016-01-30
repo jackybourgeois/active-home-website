@@ -130,14 +130,14 @@ bind ah.home.pushResponse chan_sendOutside_http
 bind ah.home.pushRequest chan_getRequest_ws
 bind ah.home.getResponse chan_pushResponse_ws
 
-add ah.store : org.activehome.catalogue.Catalogue/0.0.3-SNAPSHOT
-bind ah.store.time chan_tic_timekeeper
-bind ah.store.getRequest chan_pushRequest_http
-bind ah.store.pushRequest chan_getRequest_http
-bind ah.store.getResponse chan_pushResponse_http
-bind ah.store.pushResponse chan_sendOutside_http
-bind ah.store.pushRequest chan_getRequest_ws
-bind ah.store.getResponse chan_pushResponse_ws
+add ah.catalogue : org.activehome.catalogue.Catalogue/0.0.3-SNAPSHOT
+bind ah.catalogue.time chan_tic_timekeeper
+bind ah.catalogue.getRequest chan_pushRequest_http
+bind ah.catalogue.pushRequest chan_getRequest_http
+bind ah.catalogue.getResponse chan_pushResponse_http
+bind ah.catalogue.pushResponse chan_sendOutside_http
+bind ah.catalogue.pushRequest chan_getRequest_ws
+bind ah.catalogue.getResponse chan_pushResponse_ws
 
 add ah.auth : org.activehome.auth.Auth/0.0.3-SNAPSHOT
 bind ah.auth.time chan_tic_timekeeper
