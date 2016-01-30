@@ -271,7 +271,7 @@
             requestDocPage: function(page) {
                 var ajax = this.$.ajax;
                 ajax.method = "GET";
-                ajax.url = "/store/doc/" + encodeURIComponent(page);
+                ajax.url = "/catalogue/doc/" + encodeURIComponent(page);
                 ajax.generateRequest();
                 this.$.spinner.display();
             },

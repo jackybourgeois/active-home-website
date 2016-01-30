@@ -1,4 +1,4 @@
-package org.activehome.home;
+package org.activehome.website;
 
 /*
  * #%L
@@ -41,7 +41,6 @@ import org.kevoree.annotation.Param;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,7 +50,7 @@ import java.util.Map;
  * @version %I%, %G%
  */
 @ComponentType
-public class Home extends Service implements RequestHandler {
+public class Website extends Service implements RequestHandler {
 
     private static String BASE_VCS_URL = "https://raw.githubusercontent.com/jackybourgeois";
 
@@ -83,8 +82,8 @@ public class Home extends Service implements RequestHandler {
         JsonObject wrap = new JsonObject();
         wrap.add("name", "active-home-doc");
         wrap.add("url", "/" + getId() + "/active-home-doc.html");
-        wrap.add("title", "Active Home - Doc");
-        wrap.add("description", "Active Home documentation");
+        wrap.add("title", "Active Home - Reference Guide");
+        wrap.add("description", "Active Home Reference");
 
         JsonObject json = new JsonObject();
         json.add("wrap", wrap);
