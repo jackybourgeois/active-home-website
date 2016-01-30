@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.active-home</groupId>
     <artifactId>org.active-home.website</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Active Home :: Website</name>
     <description>Active Home Website</description>
@@ -61,7 +61,7 @@
         <dependency>
             <groupId>org.active-home</groupId>
             <artifactId>org.active-home.context</artifactId>
-            <version>0.0.2-SNAPSHOT</version>
+            <version>0.0.3-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.eclipsesource.minimal-json</groupId>
