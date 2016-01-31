@@ -42,7 +42,8 @@
 
 <dom-module id="active-home-doc">
 
-    <link rel="import" href="https://raw.githubusercontent.com/jackybourgeois/active-home/master/docs/branding/theme.css" type="css">
+    <link rel="import"
+          href="https://raw.githubusercontent.com/jackybourgeois/active-home/master/docs/branding/theme.css" type="css">
 
     <template>
 
@@ -102,128 +103,22 @@
                     </a>
                 </div>
                 <div>
-                    <paper-item id="--activehome--master--org__activehome__com--docs--com__md-item" on-click="selectSection">
-                        <paper-item-body two-line id="--activehome--master--org__activehome__com--docs--com__md-body">
-                            <div class="title" id="--activehome--master--org__activehome__com--docs--com__md-title">
-                                <iron-icon icon="language" id="--activehome--master--org__activehome__com--docs--com__md-icon"></iron-icon>
-                                Com
-                            </div>
-                            <div secondary class="subtitle" id="--activehome--master--org__activehome__com--docs--com__md-subtitle">
-                                Messages in Active Home
-                            </div>
-                        </paper-item-body>
-                    </paper-item>
-                    <paper-item id="--activehome--master--org__activehome__time--docs--timeControlled__md-item"
-                                on-click="selectSection">
-                        <paper-item-body two-line id="--activehome--master--org__activehome__time--docs--timeControlled__md-body">
-                            <div class="title" id="--activehome--master--org__activehome__time--docs--timeControlled__md-title">
-                                <iron-icon icon="device:access-time" id="--activehome--master--org__activehome__time--docs--timeControlled__md-icon"></iron-icon>
-                                Time
-                            </div>
-                            <div secondary class="subtitle" id="--activehome--master--org__activehome__time--docs--timeControlled__md-subtitle">
-                                Tic, distribution, simulation
-                            </div>
-                        </paper-item-body>
-                    </paper-item>
-                    <paper-item on-click="selectSection" id="--activehome--master--org__activehome__service--docs--service__md-item"
-                                style="background: #ffe680">
-                        <paper-item-body two-line id="--activehome--master--org__activehome__service--docs--service__md-body">
-                            <div class="title" id="--activehome--master--org__activehome__service--docs--service__md-title">
-                                <iron-icon icon="trending-up" id="--activehome--master--org__activehome__service--docs--service__md-icon"></iron-icon>
-                                Service
-                            </div>
-                            <div secondary class="subtitle" id="--activehome--master--org__activehome__service--docs--service__md-subtitle">
-                                Play with data
-                            </div>
-                        </paper-item-body>
-                    </paper-item>
-                    <paper-item id="--activehome--master--org__activehome__api--docs--api__md-item"
-                                on-click="selectSection" style="background: #afdde9">
-                        <paper-item-body two-line id="--activehome--master--org__activehome__api--docs--api__md-body">
-                            <div class="title" id="--activehome--master--org__activehome__api--docs--api__md-title">
-                                <iron-icon icon="swap-horiz" id="--activehome--master--org__activehome__api--docs--api__md-icon"></iron-icon>
-                                API
-                            </div>
-                            <div secondary class="subtitle" id="--activehome--master--org__activehome__api--docs--api__md-subtitle">
-                                Get in and out Active Home
-                            </div>
-                        </paper-item-body>
-                    </paper-item>
-                    <paper-item id="--activehome--master--org__activehome__io--docs--io__md-item"
-                                on-click="selectSection" style="background: #d38d5f">
-                        <paper-item-body two-line id="--activehome--master--org__activehome__io--docs--io__md-body">
-                            <div class="title" id="--activehome--master--org__activehome__io--docs--io__md-title">
-                                <iron-icon icon="maps:local-laundry-service" id="--activehome--master--org__activehome__io--docs--io__md-body"></iron-icon>
-                                IO
-                            </div>
-                            <div secondary class="subtitle" id="--activehome--master--org__activehome__io--docs--io__md-subtite">
-                                Input/Output
-                            </div>
-                        </paper-item-body>
-                    </paper-item>
-                    <paper-item id="--activehome--master--org__activehome__user--docs--user__md-item"
-                                on-click="selectSection" style="background: #aaffaa">
-                        <paper-item-body two-line id="--activehome--master--org__activehome__user--docs--user__md-body">
-                            <div class="title" id="--activehome--master--org__activehome__user--docs--user__md-title">
-                                <iron-icon icon="face" id="--activehome--master--org__activehome__user--docs--user__md-user"></iron-icon>
-                                User
-                            </div>
-                            <div secondary class="subtitle" id="--activehome--master--org__activehome__user--docs--user__md-subtitle">
-                                Householder/System Hub
-                            </div>
-                        </paper-item-body>
-                    </paper-item>
-                    <paper-item id="--activehome--master--org__activehome__context--docs--context__md-item"
-                                on-click="selectSection">
-                        <paper-item-body two-line id="--activehome--master--org__activehome__context--docs--context__md-body" >
-                            <div class="title" id="--activehome--master--org__activehome__context--docs--context__md-title" >
-                                <iron-icon icon="device:storage" id="--activehome--master--org__activehome__context--docs--context__md-icon"></iron-icon>
-                                Context
-                            </div>
-                            <div secondary class="subtitle" id="--activehome--master--org__activehome__context--docs--context__md-subtitle" >
-                                Managing data
-                            </div>
-                        </paper-item-body>
-                    </paper-item>
-                    <div class="group">
-                        Energy
-                    </div>
-                    <hr>
-                    <paper-item id="--activehome-energy--master--docs--reactive__md-item" on-click="selectSection">
-                        <paper-item-body two-line id="--activehome-energy--master--docs--reactive__md-body">
-                            <div class="title" id="--activehome-energy--master--docs--reactive__md-title">
-                                Reactive Process
-                            </div>
-                            <div secondary class="subtitle" id="--activehome-energy--master--docs--reactive__md-subtitle"></div>
-                        </paper-item-body>
-                    </paper-item>
-                    <paper-item id="--activehome-energy--master--docs--predictive__md-item"
-                                on-click="selectSection">
-                        <paper-item-body two-line id="--activehome-energy--master--docs--predictive__md-body">
-                            <div class="title" id="--activehome-energy--master--docs--predictive__md-title">
-                                Predictive Process
-                            </div>
-                            <div secondary class="subtitle" id="--activehome-energy--master--docs--predictive__md-subtitle">
 
-                            </div>
-                        </paper-item-body>
-                    </paper-item>
-                    <paper-item id="--activehome-energy--master--docs--collaboration__md-item"
-                                on-click="selectSection">
-                        <paper-item-body two-line id="--activehome-energy--master--docs--collaboration__md-body">
-                            <div class="title" id="--activehome-energy--master--docs--collaboration__md-title">
-                                Collaboration
-                            </div>
-                            <div secondary class="subtitle" id="--activehome-energy--master--docs--collaboration__md-subtitle">
-
-                            </div>
-                        </paper-item-body>
-                    </paper-item>
-
+                    <template is="dom-repeat" items="{{pages}}" as="group">
+                        <div class="group">
+                            {{group.title}}
+                        </div>
+                        <hr>
+                        <template is="dom-repeat" items="{{group.content}}" as="item">
+                            <paper-item id="{{item.page}}-item" on-click="selectSection">
+                                {{item.title}}
+                            </paper-item>
+                        </template>
+                    </template>
                     <a href="/catalogue">
                         <paper-button class="info bt-bottom" unresolved="" raised>
                             <iron-icon icon="apps"></iron-icon>
-                            Component Catalog
+                            Components
                         </paper-button>
                     </a>
                 </div>
@@ -232,7 +127,7 @@
                 <paper-toolbar>
                     <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
                     <div class="bottom">
-                        <h2 style="color: #fff">Reference Guide</h2>
+                        <h2 style="color: #fff">Guide and Resources</h2>
                     </div>
                 </paper-toolbar>
                 <section style="text-align: center">
@@ -250,8 +145,31 @@
         Polymer({
             is: 'active-home-doc',
 
+            properties: {
+                pages: {
+                    type: Array,
+                    value: []
+                }
+            },
+
             ready: function () {
-                this.requestDocPage("--activehome--master--docs--overview__md");
+                this.requestDocPage("--active-home--master", "overview");
+                this.pages = [{name: "core", title: "", content: [
+                    {path: "/active-home/master", page: "overview", title: "Overview", icon: "" },
+                    {path: "/active-home/master/org.active-home.com", page: "com", title: "Com", icon: "language" },
+                    {path: "/active-home/master/org.active-home.time", page: "TimeControlled", title: "Time", icon: "device:access-time" },
+                    {path: "/active-home/master/org.active-home.service", page: "Service", title: "Service", icon: "trending-up" },
+                    {path: "/active-home/master/org.active-home.api", page: "API", title: "API", icon: "swap-horiz" },
+                    {path: "/active-home/master/org.active-home.io", page: "IO", title: "IO", icon: "maps:local-laundry-service" },
+                    {path: "/active-home/master/org.active-home.user", page: "User", title: "User", icon: "face" },
+                    {path: "/active-home/master/org.active-home.context", page: "Context", title: "Context", icon: "device:storage" }
+                ]},
+                    {name: "energy", title: "Energy", content: [
+                        {path: "/active-home-energy", page: "reactive", title: "Reactive", subtitle: "", icon: "" },
+                        {path: "/active-home-energy", page: "predictive", title: "Predictive", subtitle: "", icon: "" },
+                        {path: "/active-home-energy", page: "collaboration", title: "Collaboration", subtitle: "", icon: "" }
+                    ]}
+                ]
             },
 
             loadView: function (content) {
@@ -262,16 +180,26 @@
 
             selectSection: function (e) {
                 var target = e.srcElement;
-                if (target==undefined) {
+                if (target == undefined) {
                     target = e.target;
                 }
-                this.requestDocPage(target.id.substr(0,target.id.lastIndexOf("-")));
+                var name = target.id.split("-")[0];
+                var path = "";
+                console.log("looking for page name: " + name);
+                for (var group in this.pages) {
+                    for (var page in this.pages[group].content) {
+                        if (this.pages[group].content[page].page==name) {
+                            path = this.pages[group].content[page].path.split("/").join("--").split(".").join("__");
+                        }
+                    }
+                }
+                this.requestDocPage(path, name);
             },
 
-            requestDocPage: function(page) {
+            requestDocPage: function (path, page) {
                 var ajax = this.$.ajax;
                 ajax.method = "GET";
-                ajax.url = "/catalogue/doc/" + encodeURIComponent(page);
+                ajax.url = "/catalogue/docs/" + path + "/" + page;
                 ajax.generateRequest();
                 this.$.spinner.display();
             },

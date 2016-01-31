@@ -78,7 +78,7 @@ public class Website extends Service implements RequestHandler {
         callback.success(json);
     }
 
-    public void doc(final RequestCallback callback) {
+    public void docs(final RequestCallback callback) {
         JsonObject wrap = new JsonObject();
         wrap.add("name", "active-home-doc");
         wrap.add("url", "/" + getId() + "/active-home-doc.html");
@@ -88,17 +88,6 @@ public class Website extends Service implements RequestHandler {
         JsonObject json = new JsonObject();
         json.add("wrap", wrap);
         callback.success(json);
-    }
-
-    public void doc(final String url,
-                    final RequestCallback callback) {
-        try {
-            callback.success(getContentFrom(
-                    java.net.URLDecoder.decode(url, "UTF-8")));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            callback.error(new Error(ErrorType.METHOD_ERROR, "Unable to parse URL " + url));
-        }
     }
 
     public Object file(final String str) {
@@ -180,16 +169,4 @@ public class Website extends Service implements RequestHandler {
         return response.toString();
     }
 
-    public String getContentFrom(String url) {
-        System.out.println("url to check: " + url);
-        if (url.startsWith("/")) {
-            url = BASE_VCS_URL + url;
-        }
-        HashMap<String, Object> response = sendGet(url, null);
-        if (response != null) {
-            System.out.println(response.get("content"));
-            return (String) response.get("content");
-        }
-        return "";
-    }
 }
