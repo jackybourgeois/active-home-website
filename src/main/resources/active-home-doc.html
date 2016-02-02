@@ -36,7 +36,7 @@
 <link rel="import" href="/bower_components/paper-drawer-panel/paper-drawer-panel.html">
 <link rel="import" href="/bower_components/paper-item/paper-item.html">
 <link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
-<link rel="import" href="/bower_components/mark-down/mark-down.html">
+<link rel="import" href="/bower_components/marked-element/marked-element.html">
 <link rel="import" href="/${id}/loading-spinner.html">
 
 
@@ -86,6 +86,10 @@
                 margin-top: 15px;
                 font-style: italic;
                 font-weight: bold;
+            }
+
+            p {
+                margin-bottom: 20px
             }
 
         </style>
@@ -174,7 +178,9 @@
 
             loadView: function (content) {
                 this.$.mainPanel.innerHTML = "<div class=\"card-content\" style=\"text-align: left\">" +
-                        "<mark-down>" + content + "</mark-down></div>";
+                        "<marked-element markdown='" + content + "'>" +
+                        "<div class='markdown-html custom'></div>" +
+                        "</marked-element></div>";
                 this.$.spinner.hide();
             },
 
